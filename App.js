@@ -13,16 +13,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>IMC</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={(text) => setText(text)}
-        value={text}
-      />
-      <Button
-        title="Press me"
-        onPress={() => Alert.alert("Simple Button pressed")}
-      ></Button>
+      <Text>Hola Mundo</Text>
     </SafeAreaView>
   );
 }
