@@ -2,18 +2,30 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
-  Button,
   TextInput,
-  Alert,
+  Button,
+  Alert
 } from "react-native";
-import React, { useState } from "react";
+
+import react, { useState } from "react";
 
 export default function App() {
-  const [text, setText] = useState("");
-
+  const [texto, setTexto] = useState("");
   return (
     <SafeAreaView style={styles.container}>
       <Text>Hola Mundo</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={(text)=>setTexto(text)}
+        value={texto}
+      />
+    <Text>{texto}</Text>
+    <Button
+        title="Alerta"
+        onPress={() => Alert.alert("Alerta",texto)}
+      >
+    </Button>
+
     </SafeAreaView>
   );
 }
@@ -30,8 +42,9 @@ const styles = StyleSheet.create({
     height: 20,
   },
   input: {
-    height: 95,
-    margin: 12,
+    height: 50,
+    width: 100,
+    margin: 0,
     borderWidth: 1,
     padding: 10,
   },
