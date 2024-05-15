@@ -10,24 +10,53 @@ import {
 import react, { useState } from "react";
 
 export default function App() {
-  const [texto, setTexto] = useState("");
+  const [peso, setPeso] = useState();
+  const [estatura, setEstatura] = useState();
+
   return (
     <SafeAreaView style={styles.container}>
       <Text>Hola Mundo</Text>
       <TextInput
         style={styles.input}
-        onChangeText={(text)=>setTexto(text)}
-        value={texto}
+        onChangeText={(value)=>setPeso(value)}
+        value={peso}
       />
-    <Text>{texto}</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={(value)=>setEstatura(value)}
+        value={estatura}
+      />
     <Button
         title="Alerta"
-        onPress={() => Alert.alert("Alerta",texto)}
+        onPress={() => Alert.alert("Alerta",calcularNivelPeso(peso,estatura))}
       >
     </Button>
 
     </SafeAreaView>
   );
+}
+
+const calcularIMC = (peso,estatura) => {
+  IMC=peso/(estatura^2)
+  return IMC.toFixed(2);
+}
+
+const calcularNivelPeso = (peso,estatura) => {
+  IMC = calcularIMC(peso,estatura);
+  nivelPeso = "";
+  if(IMC < 18.5){
+    nivelPeso = "Su IMC es "+ IMC + " y tiene Bajo Peso";
+  }
+  if(IMC >= 18.5 && IMC <25){
+    nivelPeso = "Su IMC es "+IMC+" y tiene Peso Saludable";
+  }
+  if(IMC >= 25 && IMC <30){
+    nivelPeso = "Su IMC es "+IMC+" y tiene Sobrepeso";
+  }
+  if(IMC >= 30){
+    nivelPeso = "Su IMC es "+IMC+" y tiene Obesidad";
+  }
+  return nivelPeso;
 }
 
 const styles = StyleSheet.create({
