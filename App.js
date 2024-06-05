@@ -1,22 +1,17 @@
 import {
   SafeAreaView,
-  StyleSheet,
   Text,
 } from "react-native";
 
-export default function App() {
+import { Estilos } from "./App.styles";
+import { Retrato } from "./src/components/retrato";
 
+export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={Estilos.container}>
       <Text>Hola con todo</Text>
+      <Retrato nombre="Kevin Chuquitarco"></Retrato>
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  }
-});
+
