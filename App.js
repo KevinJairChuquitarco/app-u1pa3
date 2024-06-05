@@ -1,17 +1,18 @@
-import {
-  SafeAreaView,
-  Text,
-} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { HomeScreen } from "./src/screens/home";
+import { UserScreen } from "./src/screens/user";
 
-import { Estilos } from "./App.styles";
-import { Retrato } from "./src/components/retrato";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={Estilos.container}>
-      <Text>Hola con todo</Text>
-      <Retrato nombre="Kevin Chuquitarco"></Retrato>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="User" component={UserScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
