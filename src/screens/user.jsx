@@ -1,9 +1,8 @@
-import react from "react";
-
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import {Contenedor} from "../components/commons/contenedor"
 
 export const UserScreen = () => {
-    return <View>
+    return <Contenedor>
         <Text>Estoy en la pantalla User</Text>
-    </View>
+    </Contenedor>
 }
